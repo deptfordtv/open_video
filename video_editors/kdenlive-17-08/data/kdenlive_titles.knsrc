@@ -1,0 +1,25 @@
+[KNewStuff2]
+ProvidersUrl=https://kdenlive.org/data/titletemplates.xml
+TargetDir=kdenlive/titles
+Uncompress=archive
+
+[KNewStuff3]
+Name=Kdenlive Title Templates
+Name[ca]=Plantilles de títol del Kdenlive
+Name[ca@valencia]=Plantilles de títol del Kdenlive
+Name[de]=Kdenlive-Titelvorlagen
+Name[en_GB]=Kdenlive Title Templates
+Name[es]=Plantillas de título de Kdenlive
+Name[it]=Modelli di titolo di Kdenlive
+Name[nl]=Titelsjablonen van Kdenlive
+Name[pl]=Szablony tytułów Kdenlive
+Name[pt]=Perfis de Títulos do Kdenlive
+Name[sk]=Šablóny dlaždíc Kdenlive
+Name[sl]=Predloge naslovov za Kdenlive
+Name[sv]=Kdenlive-titelmallar
+Name[uk]=Шаблони титрів Kdenlive
+Name[x-test]=xxKdenlive Title Templatesxx
+ProvidersUrl=http://download.kde.org/ocs/providers.xml
+Categories=Kdenlive Title Templates
+TargetDir=kdenlive/titles
+Uncompress=archive

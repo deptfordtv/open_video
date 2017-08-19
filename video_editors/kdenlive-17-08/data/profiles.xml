@@ -1,0 +1,58 @@
+<profiles version="0.1">
+ <group name="Generic (HD for web, mobile devices...)" renderer="avformat" type="av">
+  <profile name="WebM - the widespread free format (VP8/Vorbis)" extension="webm"
+   qualities="15,45" defaultquality="30"
+   audioqualities="7,3" defaultaudioquality="5"
+   args="f=webm vcodec=libvpx acodec=vorbis crf=%quality vb=0 quality=good aq=%audioquality max-intra-rate=1000"
+   speeds="cpu-used=2;cpu-used=3;cpu-used=4;cpu-used=5"/>
+  <profile name="MP4 - the dominating format (H264/AAC)" extension="mp4"
+   qualities="15,20,45" defaultquality="30"
+   audiobitrates="192,64" defaultaudiobitrate="160"
+   args="properties=x264-medium f=mp4 vcodec=libx264 acodec=aac g=120 crf=%quality ab=%audiobitrate+'k'"
+   speeds="preset=slower;preset=medium;preset=faster;preset=ultrafast"/>
+  <profile name="MPEG-2" extension="mpg"
+   qualities="3,15" defaultquality="5"
+   audioqualities="3,7" defaultaudioquality="3"
+   args="qscale=%quality aq=%audioquality"
+   speeds="subq=5 cmp=2 subcmp=2 trellis=1 bf=2;subq=3 cmp=1 subcmp=1 trellis=1 bf=2;subq=1"/>
+ </group>
+ <group name="Ultra-High Definition (4K)" renderer="avformat" type="av">
+  <profile name="WebM-VP9" extension="webm"
+   qualities="15,45" defaultquality="25"
+   audioqualities="7,3" defaultaudioquality="5"
+   args="f=webm acodec=vorbis vcodec=libvpx-vp9 crf=%quality vb=0 quality=good aq=%audioquality"
+   speeds="cpu-used=2;cpu-used=3;cpu-used=4;cpu-used=5"/>
+  <profile name="MP4-H265 (HEVC)" extension="mp4"
+   qualities="15,35" defaultquality="25"
+   audiobitrates="192,64" defaultaudiobitrate="160"
+   args="properties=x265-medium f=mp4 vcodec=libx265 acodec=aac crf=%quality ab=%audiobitrate+'k'"
+   speeds="preset=slower;preset=medium;preset=faster;preset=ultrafast"/>
+ </group>
+ <group name="Old-TV definition (DVD...)" renderer="avformat" type="av">
+  <profile name="VOB (DVD)" extension="vob"
+   qualities="5,15" defaultquality="5"
+   audiobitrates="192,128" defaultaudiobitrate="160"
+   args="properties=dv_%dv_standard/DVD -profile dv_%dv_standard f=dvd vcodec=mpeg2video acodec=ac3 qscale=%quality ab=%audiobitrate+'k'"
+   speeds="subq=5 cmp=2 subcmp=2 trellis=1 bf=2;subq=3 cmp=1 subcmp=1 trellis=1 bf=2;subq=1"/>
+  <profile name="Flash" extension="flv"
+   qualities="5,15" defaultquality="5"
+   audiobitrates="160,96" defaultaudiobitrate="128"
+   args="properties=Flash qscale=%quality ab=%audiobitrate+'k'"/>
+  <profile name="MPEG4-ASP/MP3 (DivX compatible)" extension="avi"
+   qualities="5,15" defaultquality="5"
+   audioqualities="3,7" defaultaudioquality="5"
+   args="properties=MPEG-4-ASP qscale=%quality aq=%audioquality"
+   speeds="subq=5 cmp=2 subcmp=2 trellis=1 bf=2;subq=3 cmp=1 subcmp=1 trellis=1 bf=2;subq=1"/>
+  <profile name="Windows Media Player" extension="wmv"
+   qualities="5,15" defaultquality="5"
+   audioqualities="3,5,7" defaultaudioquality="5"
+   args="f=asf vcodec=wmv2 acodec=wmav2 qscale=%quality aq=%audioquality"/>
+ </group>
+ <group name="Audio only" renderer="avformat" type="audio">
+  <profile name="WAV" extension="wav" args="properties=WAV"/>
+  <profile name="MP3" extension="mp3" audioqualities="3,7" defaultaudioquality="5" args="aq=%audioquality"/>
+  <profile name="OGG" extension="ogg" audioqualities="3,7" defaultaudioquality="4" args="aq=%audioquality vn=1"/>
+  <profile name="AC3" extension="ac3" audiobitrates="192,64" defaultaudiobitrate="160" args="ab=%audiobitrate+'k'"/>
+ </group>
+</profiles>
+

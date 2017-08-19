@@ -1,0 +1,24 @@
+[KNewStuff2]
+ProvidersUrl=http://download.kde.org/khotnewstuff/kdenlive-providers.xml
+TargetDir=kdenlive/lumas
+Uncompress=archive
+
+[KNewStuff3]
+Name=Kdenlive Transition Wipes
+Name[ca]=Cortinetes de transició del Kdenlive
+Name[ca@valencia]=Cortinetes de transició del Kdenlive
+Name[en_GB]=Kdenlive Transition Wipes
+Name[es]=Barridos de transición de Kdenlive
+Name[it]=Wipe di transizione di Kdenlive
+Name[nl]=Overgangsvegen van Kdenlive
+Name[pl]=Przejścia Kdenlive
+Name[pt]=Varrimentos de Transição do Kdenlive
+Name[sk]=Zahladenia prechodov Kdenlive
+Name[sl]=Obrisi prehodov za Kdenlive
+Name[sv]=Kdenlive-övergångar
+Name[uk]=Перехідні витирання Kdenlive
+Name[x-test]=xxKdenlive Transition Wipesxx
+ProvidersUrl=http://download.kde.org/ocs/providers.xml
+Categories=Kdenlive FX
+TargetDir=kdenlive/lumas
+Uncompress=archive
