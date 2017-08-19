@@ -1,0 +1,365 @@
+noinst_LIBRARIES = libimagedata.a
+libimagedata_a_SOURCES =
+nodist_libimagedata_a_SOURCES = defaulttheme.data
+
+# The following bash scripts makes up the list of used PNG's
+
+#rm /tmp/data_{not,}using; for i in $(ls -1 *.png | sort); do if [[ -n $(grep -l $i ../defaulttheme.C) ]]; then echo $i \\ >> /tmp/data_using; else echo  $i \\ >> /tmp/data_notusing; fi; done;
+
+#list created from the files /tmp/data_using generated in the script above
+PNGS = \
+arrow.png \
+autokeyframe.png \
+bar.png \
+batchcancel_dn.png \
+batchcancel_hi.png \
+batchcancel_up.png \
+batchstart_dn.png \
+batchstart_hi.png \
+batchstart_up.png \
+batchstop_dn.png \
+batchstop_hi.png \
+batchstop_up.png \
+blank30x30.png \
+bottom_justify.png \
+camerakeyframe.png \
+camera.png \
+cancel_dn.png \
+cancel_hi.png \
+cancel.png \
+cancel_up.png \
+cbuttons_left.png \
+cbuttons_right.png \
+center_justify.png \
+channel_bg.png \
+channel.png \
+channel_position.png \
+checkbox_checkedhi.png \
+checkbox_checked.png \
+checkbox_dn.png \
+checkbox_hi.png \
+checkbox_up.png \
+clip_icon.png \
+closetip.png \
+cmeter_bg.png \
+column_dn.png \
+column_hi.png \
+column_up.png \
+copy.png \
+cpanel_bg.png \
+crop.png \
+cut.png \
+cwindow_active.png \
+cwindow_inactive.png \
+delete.png \
+drawpatch_checkedhi.png \
+drawpatch_checked.png \
+drawpatch_dn.png \
+drawpatch_hi.png \
+drawpatch_up.png \
+editpanel_checkedhi.png \
+editpanel_checked.png \
+editpanel_dn.png \
+editpanel_hi.png \
+editpanel_up.png \
+end.png \
+expandpatch_checkedhi.png \
+expandpatch_checked.png \
+expandpatch_dn.png \
+expandpatch_hi.png \
+expandpatch_up.png \
+eyedrop.png \
+fastfwd.png \
+fastrev.png \
+fileboxbutton_dn.png \
+fileboxbutton_hi.png \
+fileboxbutton_up.png \
+file_column.png \
+file_film.png \
+file_folder.png \
+file_sound.png \
+file_unknown.png \
+fitautos.png \
+fit.png \
+folder.png \
+framefwd.png \
+framerev.png \
+gangpatch_checkedhi.png \
+gangpatch_checked.png \
+gangpatch_dn.png \
+gangpatch_hi.png \
+gangpatch_up.png \
+generic_dn.png \
+generic_hi.png \
+generic_up.png \
+goto.png \
+heroine_icon.png \
+hscroll_handle_bg.png \
+hscroll_handle_dn.png \
+hscroll_handle_hi.png \
+hscroll_handle_up.png \
+hscroll_left_dn.png \
+hscroll_left_hi.png \
+hscroll_left_up.png \
+hscroll_right_dn.png \
+hscroll_right_hi.png \
+hscroll_right_up.png \
+hslider_bg_dn.png \
+hslider_bg_hi.png \
+hslider_bg_up.png \
+hslider_fg_dn.png \
+hslider_fg_hi.png \
+hslider_fg_up.png \
+ibeam.png \
+icons.png \
+in_checkedhi.png \
+in_checked.png \
+in_dn.png \
+in_hi.png \
+inpoint.png \
+in_up.png \
+keyframe3.png \
+keyframe.png \
+label_checkedhi.png \
+label_checked.png \
+label.png \
+labeltoggle_dn.png \
+labeltoggle_uphi.png \
+labeltoggle_up.png \
+left_justify.png \
+list_bg.png \
+listbox_button_disabled.png \
+listbox_button_dn.png \
+listbox_button_hi.png \
+listbox_button_up.png \
+listbox_dn.png \
+listbox_expandcheckedhi.png \
+listbox_expandchecked.png \
+listbox_expanddn.png \
+listbox_expanduphi.png \
+listbox_expandup.png \
+listbox_up.png \
+locklabels_dn.png \
+locklabels_locked.png \
+locklabels_lockedhi.png \
+locklabels_unlocked.png \
+locklabels_unlockedhi.png \
+magnify.png \
+maskkeyframe.png \
+mask.png \
+mbutton_bg.png \
+mbutton_blue.png \
+mclock.png \
+middle_justify.png \
+mode_add.png \
+mode_divide.png \
+modekeyframe.png \
+mode_max.png \
+mode_multiply.png \
+mode_normal.png \
+mode_replace.png \
+mode_subtract.png \
+mutepatch_checkedhi.png \
+mutepatch_checked.png \
+mutepatch_dn.png \
+mutepatch_hi.png \
+mutepatch_up.png \
+new_bg.png \
+nextlabel.png \
+nexttip.png \
+ok.png \
+openfolder.png \
+out_checkedhi.png \
+out_checked.png \
+out_dn.png \
+out_hi.png \
+outpoint.png \
+out_up.png \
+over.png \
+overwrite.png \
+pan_channel.png \
+pan_channel_small.png \
+panel_divider.png \
+pan_hi.png \
+pankeyframe.png \
+pan_popup.png \
+pan_stick.png \
+pan_stick_small.png \
+pan_up.png \
+paste.png \
+patchbay_bg.png \
+pause.png \
+playpatch_checkedhi.png \
+playpatch_checked.png \
+playpatch_dn.png \
+playpatch_hi.png \
+playpatch_up.png \
+play.png \
+plugin_bg.png \
+pluginbutton_dn.png \
+pluginbutton_hi.png \
+pluginbutton_selecthi.png \
+pluginbutton_select.png \
+plugin_on.png \
+plugin_show.png \
+pot_dn.png \
+pot_hi.png \
+pot_up.png \
+preferences_bg.png \
+preferencesbutton_dnhi.png \
+preferencesbutton_dnlo.png \
+preferencesbutton_dn.png \
+preferencesbutton_uphi.png \
+preferencesbutton_up.png \
+prevlabel.png \
+prevtip.png \
+progress_bg.png \
+progress_hi.png \
+projectorkeyframe.png \
+projector.png \
+protect.png \
+radial_checkedhi.png \
+radial_checked.png \
+radial_dn.png \
+radial_hi.png \
+radial_up.png \
+recordgui_batch.png \
+recordgui_controls.png \
+recordgui_list.png \
+recordmonitor_meters.png \
+recordmonitor_panel.png \
+recordpatch_checkedhi.png \
+recordpatch_checked.png \
+recordpatch_dn.png \
+recordpatch_hi.png \
+recordpatch_up.png \
+record.png \
+redo.png \
+reload.png \
+resource1024.png \
+resource128.png \
+resource256.png \
+resource32.png \
+resource512.png \
+resource64.png \
+reverse.png \
+rewind.png \
+right_justify.png \
+ruler.png \
+setformat_bg2.png \
+show_meters.png \
+singleframe.png \
+splice.png \
+statusbar_cancel_dn.png \
+statusbar_cancel_hi.png \
+statusbar_cancel_up.png \
+statusbar_left.png \
+statusbar_right.png \
+stop.png \
+swap_extents.png \
+tan_smooth.png \
+tan_linear.png \
+text.png \
+timebar_bg.png \
+timebar_brender.png \
+timebar_view.png \
+tipbutton_dn.png \
+tipbutton_hi.png \
+tipbutton_up.png \
+title_bg.png \
+titlesafe.png \
+toclip.png \
+toolwindow.png \
+top_justify.png \
+tracks_bg.png \
+transport_center_dn.png \
+transport_center_hi.png \
+transport_center_up.png \
+transport_left_dn.png \
+transport_left_hi.png \
+transport_left_up.png \
+transport_right_dn.png \
+transport_right_hi.png \
+transport_right_up.png \
+tumble_bottom.png \
+tumble_hi.png \
+tumble_top.png \
+tumble_up.png \
+undo.png \
+updir.png \
+vbuttons_left.png \
+vertical_slider_bg_dn.png \
+vertical_slider_bg_hi.png \
+vertical_slider_bg_up.png \
+vertical_slider_fg_dn.png \
+vertical_slider_fg_hi.png \
+vertical_slider_fg_up.png \
+vscroll_handle_bg.png \
+vscroll_handle_dn.png \
+vscroll_handle_hi.png \
+vscroll_handle_up.png \
+vscroll_left_dn.png \
+vscroll_left_hi.png \
+vscroll_left_up.png \
+vscroll_right_dn.png \
+vscroll_right_hi.png \
+vscroll_right_up.png \
+vwindow_timebar.png \
+wrench.png \
+xmeter_green.png \
+xmeter_normal.png \
+xmeter_over.png \
+xmeter_red.png \
+xmeter_white.png \
+xmeter_yellow.png \
+ymeter_green.png \
+ymeter_normal.png \
+ymeter_over.png \
+ymeter_red.png \
+ymeter_white.png \
+ymeter_yellow.png \
+zoombar_left.png \
+zoombar_right.png
+
+# this rule creates the .o file from the concatenated PNGs
+.data.$(OBJEXT):
+	$(OBJCOPY) -I binary -B $(OBJCOPYARCH) -O $(OBJCOPYTARGET) $< $@
+
+defaulttheme.data: $(PNGS)
+	$(top_builddir)/guicast/bootstrap $@ $^ || { rm -f $@; exit 1; }
+
+clean-local:
+	rm -f defaulttheme.data
+ 
+EXTRA_DIST = \
+	$(PNGS) \
+	about.xcf.bz2 \
+	asset_button.xcf.bz2 \
+	batchrender.xcf.bz2 \
+	buttonbar2.xcf.bz2 \
+	buttonbar2_fullsize.xcf.bz2 \
+	buttons.xcf.bz2 \
+	chain.xcf.bz2 \
+	channels.xcf.bz2 \
+	draw_up.xcf.bz2 \
+	draw_uphi.xcf.bz2 \
+	edithandle.xcf.bz2 \
+	edithandlein.xcf.bz2 \
+	editpanel2.xcf \
+	expand.xcf.bz2 \
+	expandpatch.xcf.bz2 \
+	heroine_icon.xcf.bz2 \
+	heroine_iconbig.xcf.bz2 \
+	keyframe.xcf.bz2 \
+	label.xcf.bz2 \
+	listbox_button.xcf.bz2 \
+	locklabels.xcf.bz2 \
+	over_button.xcf.bz2 \
+	patch.xcf.bz2 \
+	pluginbutton.xcf.bz2 \
+	resource.xcf.bz2 \
+	statusbar.xcf.bz2 \
+	swap_extents.xcf.bz2 \
+	transport.xcf.bz2 \
+	transportbuttons.xcf.bz2 \
+	transports.xcf.bz2

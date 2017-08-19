@@ -1,0 +1,121 @@
+THEMES= \
+	suv \
+	bluedottheme \
+	defaulttheme
+
+if ENABLE_FINDOBJECT
+MAYBE_FINDOBJECT = \
+	findobject 
+endif
+
+SUBDIRS= \
+	$(THEMES) \
+	libfourier \
+	colors \
+	libeffecttv \
+	1080to540 \
+	720to480 \
+	C41 \
+	aging \
+	bandslide \
+	bandwipe \
+	blur \
+	bluebanana \
+	brightness \
+	burn \
+	cdripper \
+	chromakey \
+	chromakeyhsv \
+	colorbalance \
+	color3way \
+	compressor \
+	crossfade \
+	decimate \
+	deinterlace \
+	delayaudio \
+	delayvideo \
+	denoise \
+	denoisefft \
+	denoisemjpeg \
+	denoiseseltempavg \
+	denoisevideo \
+	despike \
+	diffkey \
+	dissolve \
+	dot \
+	downsample \
+	fieldframe \
+	flash \
+	flip \
+	framefield \
+	freeverb \
+	freezeframe \
+	gain \
+	gamma \
+	gradient \
+	greycstoration \
+	histogram \
+	holo \
+	huesaturation \
+	interpolate \
+	interpolateaudio \
+	interpolatevideo \
+	invertaudio \
+	invertvideo \
+	irissquare \
+	ivtc \
+	lens \
+	level \
+	linearblur \
+	liveaudio \
+	livevideo \
+	loopaudio \
+	loopvideo \
+	motion \
+	motionblur \
+	normalize \
+	oilpainting \
+	overlay \
+	overlayaudio \
+	parametric \
+	perspective \
+	pitch \
+	polar \
+	radialblur \
+	reframe \
+	reframert \
+	reroute \
+	resample \
+	reverb \
+	reverseaudio \
+	reversevideo \
+	rgb601 \
+	rotate \
+	scale \
+	shapewipe \
+	sharpen \
+	shiftinterlace \
+	slide \
+	spectrogram \
+	svg \
+	swapchannels \
+	synthesizer \
+	threshold \
+	timeavg \
+	timefront \
+	timestretch \
+	titler \
+	translate \
+	unsharp \
+	videoscope \
+	wave \
+	whirl \
+	wipe \
+	yuv \
+	zoomblur \
+	$(MAYBE_FINDOBJECT) \
+	fonts
+
+AUTOMAKE_OPTIONS=foreign
+
+EXTRA_DIST = 

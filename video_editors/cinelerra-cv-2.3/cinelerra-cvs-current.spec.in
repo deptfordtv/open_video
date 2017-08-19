@@ -1,0 +1,193 @@
+# This is not relocatable
+%define prefix /usr
+
+# macros
+%define with_OPENGL 0
+
+%{?_with_opengl: %{expand: %%global with_OPENGL 1}}
+
+Summary: Cinelerra CV
+Name: cinelerra
+Version: @VERSION@.cv981
+%if %{with_OPENGL}
+##Version: @VERSION@.CV.svn.%{build_nick}.opengl
+Release: %{build_nick}.%(date '+%Y%m%d').opengl
+%else
+##Version: @VERSION@.CV.svn.%{build_nick}
+Release: %{build_nick}.%(date '+%Y%m%d')
+%endif
+##Release: %(date '+%Y%m%d')
+License: GPL
+Group: Productivity/Multimedia/Video/Editors and Convertors
+URL: http://git.cinelerra-cv.org
+Source0: %{name}-@VERSION@.tar.gz
+BuildRoot: %{_tmppath}/%{name}-@VERSION@-%{release}-buildroot
+Requires: mjpegtools >= 1.6.3
+
+%if %suse_version > 1000
+BuildRequires: xorg-x11 xorg-x11-devel mjpegtools >= 1.6.3 mjpegtools-devel
+BuildRequires: alsa-devel libogg-devel
+BuildRequires: libvorbis-devel libtheora-devel OpenEXR-devel libdv-devel
+BuildRequires: libpng-devel libjpeg-devel mjpegtools-devel fftw3-devel a52dec
+BuildRequires: faad2-devel faac libiec61883-devel esound-devel lame
+BuildRequires: e2fsprogs-devel libsndfile-devel nasm gcc gcc-c++ libtiff-devel
+
+# libpng-devel-32bit libjpeg-devel-32bit e2fsprogs-devel-32bit
+# libtiff-devel-32bit
+# non-suse repo
+BuildRequires: x264-devel
+%endif
+
+Provides: cinelerra
+
+%description
+%if %{with_OPENGL}
+Cinelerra unofficial cvs package
+build options: --with opengl
+%else
+Cinelerra unofficial cvs package
+without OpenGL support
+build options: [none]
+%endif
+
+%prep
+%setup -n %{name}-@VERSION@
+
+%build
+%if %{with_OPENGL}
+./configure --prefix=%{prefix} --libdir=%_libdir --with-plugindir=%{_libdir}/cinelerra --enable-freetype2 --with-buildinfo=cust/"SVN r981 SUSE" --enable-opengl
+%else
+./configure --prefix=%{prefix} --libdir=%_libdir --with-plugindir=%{_libdir}/cinelerra --enable-freetype2 --with-buildinfo=cust/"SVN r981 SUSE"
+%endif
+%{__make} %{?_smp_mflags} %{?mflags}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+make DESTDIR=$RPM_BUILD_ROOT install
+# rename the mpeg3 utils so they can be installed alongside SuSE native versions
+( cd $RPM_BUILD_ROOT%{prefix}/bin
+  mv mpeg3toc mpeg3toc.hv
+  mv mpeg3cat mpeg3cat.hv
+  mv mpeg3dump mpeg3dump.hv
+  ln -s /usr/bin/mpeg2enc $RPM_BUILD_ROOT%{_libdir}/cinelerra/mpeg2enc.plugin
+)
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-,root,root,-)
+%doc
+#%{prefix}/bin/*
+%{prefix}/bin/cinelerra
+
+# missing in the 2.0 build?
+#%{prefix}/bin/mplexhi
+%{prefix}/bin/mplexlo
+
+#%exclude %{prefix}/bin/mpeg3dump
+#%exclude %{prefix}/bin/mpeg3toc
+#%exclude %{prefix}/bin/mpeg3cat
+%{prefix}/bin/mpeg3dump.hv
+%{prefix}/bin/mpeg3toc.hv
+%{prefix}/bin/mpeg3cat.hv
+
+%{prefix}/share/locale/*
+%exclude %{prefix}/include/*
+
+%{_libdir}/cinelerra/*.so
+%{_libdir}/cinelerra/mpeg2enc.plugin
+%{_libdir}/cinelerra/shapewipe/*
+
+# remove below for no static libs
+# %exclude %{_libdir}/lib/cinelerra/*.a
+%exclude %{_libdir}/cinelerra/*.la
+
+%{_libdir}/cinelerra/fonts/*
+
+%{_libdir}/libguicast*
+%{_libdir}/libmpeg3hv*
+%{_libdir}/libquicktimehv*
+# missing in 2.0
+#%{prefix}/lib/libsndfilehv*
+#%{prefix}/lib/pkgconfig*
+
+%{prefix}/share/applications/cinelerra.desktop
+%{prefix}/share/pixmaps/cinelerra.xpm
+
+
+%changelog
+* Fri Jan 19 2007 Kevin Brosius <cobra@compuserve.com> - 2.1.cv981-cobra-date
+- svn r981
+- Update for 64bit SUSE builds
+- Change versioning to more closely match SUSE package guidelines and packman
+
+
+* Fri Nov 24 2006 Kevin Brosius <cobra@compuserve.com> - 2.1.0.cvs.cobra-date
+- svn r958
+
+* Thu Sep 14 2006 Kevin Brosius <cobra@compuserve.com> - 2.1.0.cvs.cobra-date
+- First package with merged Cinelerra 2.1
+- svn r888
+
+%changelog
+* Thu Jun 1 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
+- transitions fix, Ogg renderfarm support, po email address fix
+- file.h compile fix, fix thread delete race condition
+- a bunch of mem management fixes
+
+* Mon May 29 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
+- reading ogg vorbis fix, Freetype2 2.2.1 compatibility
+- mjpeg load fixes (bug139, 148, 259), fix insertion of media files directly
+- shorten xml files, motion blur plugin
+- camera and projector automation for plugins, waveform not shown fix
+- change every clip all media files behavior in saved xml
+- work without audio enabled, delete pluginsets fix
+
+* Tue May 02 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
+- fseek0 fix bug244, bug250, check sound/audio in dv format
+- bug249 vorbis setup fix, chromakey fix, check for libfaac
+- fix DV audio read sample impl., move icon in Gnome
+- bug30 allow transition at end of track, bug243
+- fix crash when rendering plugins, fix null plugin usage
+- fix load XML crash, bug242 >1024 properties
+
+* Sat Apr 03 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
+- EDL export, .mov DV fourcc -> dvc, multi transitions with diff lengths fix
+- debian build fixes, new configure checks and libavcodec header fixes
+- mux fixes for long silence/empty video, ubuntu build fixes
+- RGB*_FLOAT color models for mask engine, gcc 4.1.0 fixes/mpeg2enc
+- Makefile cleanups, raise_window() commands, BUZ driver channel editor fixes
+- format selection for timecode in titler, build date and CV versioning
+- fix --disable-firewire, chromakey-hsv plugin, pt_BR translation updates
+- deinterlace plugin updates, cache frames even when not static
+- new deinterlacer, timefronts - take from alpha
+- fix apply-mask-before-plugins for masks, new timefront plugin
+- add histogram split checkbox
+
+* Sat Feb 04 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
+- vertical pos of auto-zoom text, dv audio offset/framing fix
+- Italian translation, Spanish update, deinterlace fix
+- mpeg encode params fix
+
+* Sat Jan 26 2006 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
+- raw dv i/o fixes, textual info for labels, " conversion
+- Automation text label editable, audio_position adjust for dv1394
+
+* Sat Dec 24 2005 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
+- fix bug 219 & 220, make text menu hilight white
+- alt+left/right navigates trough edit handles
+- parameter name fix, single image dnd fixes, remove mwindowmove dup code
+- ffmpeg defaults for elem stream (Bug 164), member function fix
+- gettextize language changes for more plugins, French update
+
+* Sun Dec 11 2005 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
+- Fix renderfarm client crash, align cursor on frames default
+- right mouse on keyframe - keyframe popup, guicast / gettextize additions
+- Brazilian update, French update
+- link mpeg2enc.plugin for SUSE, add mjpegtools >= 1.6.3 dep
+
+* Mon Nov 14 2005 Kevin Brosius <cobra@compuserve.com> - 2.0.0.cvs.cobra-date
+- Initial build of CV from svn tree.
+
+

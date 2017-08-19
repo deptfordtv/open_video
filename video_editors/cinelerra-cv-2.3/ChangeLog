@@ -1,0 +1,208 @@
+13. aug. 2015
+Cinelerra-cv team
+	- Cinelerra-CV version 2.3 released. Changelog:
+	Full UTF-8 support.
+	Complete new overlay engine and resampler.
+	New graphics: About panel, some icons.
+	New plugins: GreyCStoration, C41, Bluebanana, color3way, findobject, lens.
+	Updated translations: German, Italian, French, Norwegian, Portugese.
+	Lots of small bugfixes.
+
+6. jul. 2014
+Cinelerra-cv team
+	- Changes can be followed through gitweb:
+	http://git.cinelerra-cv.org/gitweb?p=CinelerraCV.git;a=summary
+
+11. jan. 2007
+nicolasm:
+	- Add the Cinelerra-CV manual sources.
+	Edition 1.00, English & French.
+
+22. dec. 2005
+minmax:
+	- Alt + left / alt + right moves cursor trough edit handles
+
+21. dec. 2005
+minmax:
+	- Fix for dragndrop crushing bug in trackcanvas.C
+
+5.Sep.2005
+
+minmax:
+
+	-Modified:    cinelerra/hvirtual/plugins/libfourier fourier.C
+	-Fix bugs
+
+	-Modified:    cinelerra/hvirtual/plugins/fourier Makefile.am
+	-Add fftw3 to ldadd in Makefile.am
+
+	-Modified:    cinelerra/hvirtual configure.in
+	-Add check for fftw3.h and libfftw3 ..
+
+
+3.Sep.2005
+
+minmax
+	-Modified:    cinelerra/hvirtual/quicktime stbl.c
+	-Apply patch as per bug 191
+	Fixes crush when opening files produced by Minolta DimageZ3
+
+
+1.Sep.2005
+
+minmax
+	-Added:       cinelerra/hvirtual/po pt_BR.po
+	
+	-Modified:    cinelerra/hvirtual/plugins/pitch pitch.C pitch.h
+	-New pitch control plugin code, and based on the same code new
+	 timestretch plugin which is now realtime!
+
+	-Modified:    cinelerra/hvirtual/plugins/timestretch timestretch.C
+	              timestretch.h
+	-New pitch control plugin code, and based on the same code new
+	 timestretch plugin which is now realtime!
+
+	-Modified: cinelerra/hvirtual/plugins/libfourier fourier.C
+		   fourier.h
+	-New pitch control plugin code, and based on the same code new
+	timestretch plugin which is now realtime!
+	     
+	-Modified:    cinelerra/hvirtual/debian control
+	-Add fftw3-dev to debian dependencies
+
+	
+28.Aug.2005
+
+minmax	
+	-Modified:    cinelerra/hvirtual/plugins/diffkey diffkey.C
+	-Fixed YUV bug in diffkey
+
+25.Aug.2005
+
+minmax	- applied j@v2v.cc patch to ogg muxing to make it standard compliant
+
+	- removed debian dependency to mjpegtools 1.6.3 - since pmdumuid
+	  makes it unneccessary
+	
+	- Modified:    cinelerra/hvirtual/cinelerra aboutprefs.C
+	- Add jan to the credits
+pmdumuid
+	- Added a automake patch to cope with the change in mjpegtool's y4m_read_frame_header()
+
+23.Aug.2005
+
+minmax:
+
+  	- Modified:    cinelerra/hvirtual/cinelerra interfaceprefs.C
+	               interfaceprefs.h mwindow.h mwindowedit.C preferences.C 
+		       preferences.h trackcanvas.C trackcanvas.h tracks.h tracksedit.C
+	- Here it is, infamous ga's patch fixed up and polished and beaten up into
+  	  submission "Just Works" (till the first tester comes at least)
+  
+  	- Modified:    cinelerra/hvirtual/cinelerra trackcanvas.C
+  	- Small fix for the dnd patch
+  
+  	- Modified:    cinelerra/hvirtual/cinelerra edits.C edits.h pluginset.C
+	- Fix a bug when paste_silence didn't return proper editlist
+
+  	- Modified:    cinelerra/hvirtual/cinelerra trackcanvas.C tracksedit.C
+  	- Make position finding rutines nicer...
+  
+  	- Modified:    cinelerra/hvirtual/cinelerra interfaceprefs.C
+                       interfaceprefs.h mwindowedit.C preferences.C
+                       preferences.h trackcanvas.C
+  	- a) remove dragdrop preference - since new mode can give all existing
+  	     behaviours it is sensible that old mode can be discarded
+  	- b) small fix for drop placement - off by one error
+
+  	- Modified:    cinelerra/hvirtual/cinelerra yuvstream.C
+      	- Fix in order to compila with new mjpegtools
+
+21.Aug.2005
+
+minmax:
+	
+	- Modified:    cinelerra/hvirtual/cinelerra maskengine.C
+  	- Small fix to mask engine
+
+20.Aug.2005
+
+minmax:
+	
+	- Modified:	cinelerra/hvirtual/cinelerra mwindow.h mwindowmove.C
+			trackcanvas.C
+	- Fix for bug 176 - implements sample zooming when holding shift and using 
+	  scrollwheel
+
+	- Modified:    cinelerra/hvirtual/debian control
+	- Moved from libavcodec-dev to libavcodec2-dev to make it compile under latest
+	  sid
+
+  	- Modified:    cinelerra/hvirtual/cinelerra cwindowgui.C maskauto.C
+		       maskauto.h maskautos.C maskautos.h mwindowedit.C
+  	- Fixes misplacement of the mask when resizing track and misplacement of the
+  	  mask outline (in compositor window) when resizing project or changing it's
+  	  aspect ratio fixes bug 161
+
+  	- Modified:    cinelerra/hvirtual/cinelerra asset.C
+  	- Forgot to set defaults for theora so they weren't persistent ... now they are
+	
+	- Modified:    cinelerra/hvirtual/cinelerra cwindowgui.C
+  	- Clear out the debug printf
+
+11.Aug.2005
+
+Changelog maintainer:
+
+	- Now we have a changelog maintainer. 
+minmax: 
+	- boost up requirement for mjpegtools to 1.6.3 (used to be 1.6.2)
+	  and applying patch for it to work...
+
+	- reworked ga's patch for free dragging
+
+	- fixed a quasi-bug in Edits::paste_silence
+	
+	- fixed mask being off the place when changing track size or when
+	  changing project size/aspect ratio
+
+	- added default options saving for theora (was missing)
+
+
+giskard:
+	- modified debian/control, addedd libtheora-mmx-dev to the 
+	  build-deps.
+j6t:
+
+        - Modified:    cinelerra/hvirtual/cinelerra mainundo.C mainundo.h
+        - Undo items are only pushed if some time has passed since the last push.
+
+        - Modified:    cinelerra/hvirtual/cinelerra mainundo.C mainundo.h
+                        pluginclient.C pluginserver.C pluginserver.h
+        - This enables undo of plugin parameter tweaks. Fixes Bug 154.
+
+
+        - Modified:    cinelerra/hvirtual/cinelerra mainundo.C mwindowedit.C
+                        undostackitem.C undostackitem.h
+        - The UndoStackItem::redo() is dropped and replaced by UndoStackItem::undo().
+          The latter must reverse its state so that the next invocation does a redo.
+
+        - Modified:    cinelerra/hvirtual/cinelerra mainundo.C mainundo.h
+        - Only one project state is stored in an undo item instead of two.
+
+        - Modified:    cinelerra/hvirtual/cinelerra loadfile.C mwindow.C
+        - The invokers of MWindow::load_filenames() instead of this function itself
+          mark the project unchanged.
+          Exception: When a backup is loaded, the project remains marked as changed.
+
+        - Modified:    cinelerra/hvirtual/cinelerra Makefile.am mainundo.C
+                        mainundo.h
+        - Removed:     cinelerra/hvirtual/cinelerra undostack.C undostack.h
+                        undostack.inc
+        - The undo stack is split into an undo stack and a redo stack.
+          This makes class UndoStack unnecessary.
+
+
+19.Oct.2003
+Added reporting of missing libraries when configure finishes.
+-Richard Baverstock

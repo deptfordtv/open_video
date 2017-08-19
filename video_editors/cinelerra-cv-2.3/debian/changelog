@@ -1,0 +1,253 @@
+cinelerra-cv (1:2.3.0) unstable; urgency=low
+
+  [ Nicola Ferralis ]
+  * Official release of Cinelerra-CV version 2.3
+  * Update maintainer contact address to the new mailing list on
+    lists.cinelerra-cv.org.
+  * Rename source and binary package to cinelerra-cv.
+  * Update build dependencies to use the packages currently available in
+    Debian and Ubuntu.
+  * Update copyright file.
+
+  [ Petter Reinholdtsen ]
+  * Move to debhelper compat level 9.
+  * Add homepage URL to cinelerra-cv.org.
+  * Updated Debian build rules based on PPA build rules from
+    Nicola Ferralis.  Complete package renaming and add menu file.
+  * Provide /etc/sysctl.d/cinelerra-cv file to adjust the default
+    kernel.shmmax value.
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sun, 27 Apr 2014 21:57:48 +0200
+
+hvirtual (1:2.1.0-1svn20060912) unstable; urgency=low
+
+  * SVN of 2006-09-12, non-debug build, merge with Adam's 2.1 version
+
+ -- Debian User <ga@kutxa.homeunix.org>  Tue, 12 Sep 2006 12:58:37 +0200
+
+hvirtual (1:2.0.0) unstable; urgency=low
+
+  * 2.0
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Tue, 8 Jan 2006 22:22:14 +0200
+
+hvirtual (1:1.2.2-3) unstable; urgency=low
+
+  * changed dependancy from libavcodec1-dev to libavcodec-dev
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Tue, 8 Feb 2005 22:22:14 +0200
+
+hvirtual (1:1.2.2) unstable; urgency=low
+
+  * merge with 1.2.2 (by Johannes Sixt)
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Tue, 8 Feb 2005 22:22:14 +0200
+
+hvirtual (1:1.2.1) unstable; urgency=low
+
+  * merge with 1.2.1 (by Johannes Sixt)
+  * added libmxf to dependencies
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Wed, 18 Aug 2004 22:22:14 +0200
+
+hvirtual (1:1.2.0) unstable; urgency=low
+
+  * merge with 1.2.0 (by Johannes Sixt)
+  * added libfaad2 to dependencies
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Tue, 1 Jun 2004 22:22:14 +0200
+
+hvirtual (1:1.1.9-1) unstable; urgency=low
+
+  * fix libsndfilehv dependency (by Johannes Sixt)
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Mon, 8 Mar 2004 22:22:14 +0200
+
+hvirtual (1:1.1.8-2) unstable; urgency=low
+
+  * fix libsndfilehv dependency (by Johannes Sixt)
+  * fix locale invocation, so only messages are translated, not numbers
+  * fix libtool dependency, remove libsndfile-dev dependency
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Fri, 21 Dec 2003 22:22:14 +0200
+
+hvirtual (1:1.1.8-1) unstable; urgency=low
+
+  * Merge with Adam's 1.1.8 release and the CVS
+
+ -- Johannes Sixt <johannes.sixt@telecom.at>  Fri, 5 Dec 2003 22:22:14 +0200
+
+hvirtual (1:1.1.7-3) unstable; urgency=low
+
+  * internationalization #2 & #3
+  * fix to track.C - crusher
+  * gettextialization
+  * no patch for 32bit counters anymore
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Fri, 10 Oct 2003 18:00:01 +0200
+
+hvirtual (1:1.1.7-2) unstable; urgency=low
+
+  * added patch to be able to compile for 32bit frame counters
+  * internationalization
+  * fixed mmx compiling (richard) 
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Fri, 26 Sep 2003 18:00:01 +0200
+
+hvirtual (1:1.1.7-1) unstable; urgency=low
+
+  * debification of mainline 1.1.7 by Richard Baverstock 
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Mon, 08 Sep 2003 18:00:01 +0200
+
+hvirtual (1:1.1.6-5) unstable; urgency=low
+
+  * updated dependency to new libsndfile1, patch by Artemia Salina
+    <asalina@newsfeeds.com>
+  * two new overlaying speedups...
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Thu, 08 Aug 2003 18:00:01 +0200
+
+hvirtual (1:1.1.6-4) unstable; urgency=low
+
+  * Johannes Sixt's patch for multihead display
+  * fix for quicktime leak
+  * fix virtualconsole leak
+  * patchbay invalid memory access fix
+  * fix for perspective plugin when using alpha mode
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Thu, 31 Jul 2003 18:00:01 +0200
+
+hvirtual (1:1.1.6-3) unstable; urgency=low
+
+  * workaround for libdv bug
+  * fix to build with latest libavcodec
+  * second overlaying speedup
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Thu, 17 Jul 2003 18:00:01 +0200
+
+hvirtual (1:1.1.6-2) unstable; urgency=low
+
+  * applied reframe-crush patch
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Wed, 25 Jun 2003 18:00:01 +0200
+
+hvirtual (1:1.1.6-2) unstable; urgency=low
+
+  * applied new titler-stroke patch
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Wed, 25 Jun 2003 18:00:01 +0200
+
+hvirtual (1:1.1.6-2) unstable; urgency=low
+
+  * applied patch to allow stroke color&width in titler
+  * applied patch to speedup overlaying and blending
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Wed, 25 Jun 2003 18:00:01 +0200
+
+hvirtual (1:1.1.6-2) unstable; urgency=low
+
+  * applied pal dv-out patch from andreaskielb@web.de
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Wed, 14 Jun 2003 07:58:01 +0200
+
+hvirtual (1:1.1.6-2) unstable; urgency=low
+
+  * applied patches for:
+  * crush on exit
+  * wrong delete[] in filexml.C
+  * possible libmpeg3 crush regarding threads
+  * crush when placing cursor after loop and playing
+  * small cleanup not to use uninitialized values
+  * splashscreen leak removed
+
+ -- Andraz Tori <andraz.tori1@guest.arnes.si>  Wed, 14 May 2003 07:58:01 +0200
+
+hvirtual (1:1.1.6-1) unstable; urgency=low
+
+  * New upstream release
+  * Added -g and removed stripping to allow debugging 
+
+ -- Sylvain Joyeux <sylvain.joyeux@polytechnique.org>  Wed, 14 May 2003 07:58:01 +0200
+
+hvirtual (1:1.1.5-4) unstable; urgency=low
+
+  * The "Patch me if you can" release
+  * Applied patches:
+    loop (Andraz Tori <Andraz.tori1@guest.arnes.si>):
+      fixes a problem wehere audio position was reported
+    	completely wrong and cursor went temporarily nuts while playing in
+    	loop, which was	annoying the other thing it does is that it aligns
+    	cursor on frames while playing (if that option is set)
+    titler-charsets (Andraz Tori <Andraz.tori1@guest.arnes.si>):
+      enables non-english users to use their own charsets
+  		in the titler plugin.
+   * Includes now mplexlo and mplexhi.
+   * Re-includes the badly forgotten mpeg2enc (really sorry for this one)
+
+ -- Sylvain Joyeux <sylvain.joyeux@polytechnique.org>  Tue, 15 Apr 2003 20:29:50 +0200
+
+hvirtual (1:1.1.5-3) unstable; urgency=low
+
+  * Fixed the dependency on XF4.3 (sorry for that)
+  * Fixed policy issues (now the packages are
+  clean according to lintian :), some rpath remain though
+
+ -- Sylvain Joyeux <sylvain.joyeux@polytechnique.org>  Wed,  9 Apr 2003 15:40:13 +0200
+
+hvirtual (1:1.1.5-2) unstable; urgency=low
+
+  * Rebuilt for fix the libvorbis0a dependency
+  * Removed the "lib" prefix on plugins
+  * added nasm in the Build-Depends
+  * Fixed the "linking shared library and static libraries" issue
+  * Now building non-PIC code since it prevents some assembly to build
+  (particularly in libavcodec)
+  * libguicast now links to Xv, not Xv_pic
+  * Moved the fourier code into a single library
+
+ -- Sylvain Joyeux <sylvain.joyeux@polytechnique.org>  Fri,  4 Apr 2003 01:09:33 +0200
+
+hvirtual (1:1.1.5-1) unstable; urgency=low
+
+  * New upstream version
+  * Quicktime: now, we use ffmpeg from the cinelerra source tree
+  (marillat's version is too new)
+  * Versioning: changed all version to Cinelerra version
+  * Cleaned choice system of mmx/non-mmx sources
+  (now using automake conditionals). mmx sources are no
+  longer built when it is not needed.
+
+ -- Sylvain Joyeux <sylvain.joyeux@polytechnique.org>  Fri, 14 Mar 2003 10:57:50 +0100
+
+hvirtual (1.1.0-3) unstable; urgency=low
+
+  * Fixed dependency problem (Bug reported by vizard on sourceforge)
+  * Since avifile support is broken, it is disabled by default
+  * Avifile was the only library in C++, we can now build with gcc 3.2
+  * Upgraded libsndfile to the 0.0.28 version (newest version in unstable)
+  * Since we build with gcc 3.2, enabled -mmmx
+
+ -- Sylvain Joyeux <sylvain.joyeux@polytechnique.org>  Sun, 24 Nov 2002 14:11:30 +0100
+
+hvirtual (1.1.0-2) unstable; urgency=low
+
+  * Re-adding some of the MMX/3Dnow parts
+  * Added options to the configure file
+  * Packages built without 3dnow support
+
+ -- Sylvain Joyeux <sylvain.joyeux@polytechnique.org>  Wed, 20 Nov 2002 01:49:19 +0100
+
+hvirtual (1.1.0-1) unstable; urgency=low
+  
+  * New upstream release
+  * Added non-included plugins
+  * Now, decore50 and encore50 are self-built (previously using libxvidecore0)
+
+ -- Sylvain Joyeux <sylvain.joyeux@polytechnique.org>  Sun, 17 Nov 2002 11:54:56 +0100
+
+hvirtual (1.0.0-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Sylvain Joyeux <sylvain.joyeux@polytechnique.org>  Mon, 21 Oct 2002 03:15:48 +0200
